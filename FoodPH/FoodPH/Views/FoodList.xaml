@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodPH.Views.FoodList"
+             xmlns:FoodVm="clr-namespace:FoodPH.ViewModels"
+             x:Name="root">
+    <ContentPage.BindingContext>
+        <FoodVm:FoodListViewModel/>
+    </ContentPage.BindingContext>
+    
+    
+    <StackLayout Padding="20">
+        <ListView x:Name="FoodListView" ItemsSource="{Binding ListOfFood}" HasUnevenRows ="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.ContextActions>
+                            <MenuItem Command="{Binding Path=BindingContext.openUpdateFood, Source={x:Reference Name=root}}" CommandParameter="{Binding .}"
+                                   Text="Update" />
+                            <MenuItem Command="{Binding Path=BindingContext.deleteFood, Source={x:Reference Name=root}}" CommandParameter="{Binding .}"
+                                   Text="Delete" />
+                        </ViewCell.ContextActions>
+                        
+                        
+                        
+                        <Grid RowSpacing="12" ColumnSpacing="12">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                               <!--<RowDefinition Height="Auto"/>-->
+                            </Grid.RowDefinitions>
+
+                            <Label Text="{Binding title}" VerticalOptions="Start" 
+                                   HorizontalOptions="Center" Grid.Row="0" Grid.Column="0"/>
+
+                            <Label Text="{Binding description}" VerticalOptions="Start"
+                                   HorizontalOptions="Center" Grid.Row="0" Grid.Column="1"/>
+                            
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+
+</ContentPage>

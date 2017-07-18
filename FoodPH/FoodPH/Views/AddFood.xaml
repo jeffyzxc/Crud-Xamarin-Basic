@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodPH.Views.AddFood"
+             xmlns:FoodVm="clr-namespace:FoodPH.ViewModels">
+    <ContentPage.BindingContext>
+        <FoodVm:FoodListViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Padding="20" Spacing="2">
+        <Label Text="Title"/>
+        <Entry Text="{Binding FoodListModel.title, Mode=TwoWay}"></Entry>
+
+        <Label Text="Description"/>
+        <Entry Text="{Binding FoodListModel.description, Mode=TwoWay}"></Entry>
+
+        <Button Text="Add" Command="{Binding AddFood}"></Button>
+
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FoodPH.Views.updateFood"
+             Title="Update Food"
+             xmlns:FoodVm="clr-namespace:FoodPH.ViewModels">
+
+    <StackLayout Padding="20">
+        <Label Text="Food Id"/>
+        <Label Text="{Binding FoodListModel.foodId, Mode=TwoWay}"/>
+        <Label Text="Food Name"/>
+        <Entry Text="{Binding FoodListModel.title, Mode=TwoWay}"/>
+        <Label Text="Food Description"/>
+        <Entry Text="{Binding FoodListModel.description, Mode=TwoWay}"/>
+
+        <Button Command="{Binding updateFood}" Text="Update"/>
+    </StackLayout>
+    
+</ContentPage>
